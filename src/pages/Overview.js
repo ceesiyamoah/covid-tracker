@@ -3,6 +3,7 @@ import CountryList from '../components/CountryList';
 import Stats from '../components/Stats';
 import Header from './../components/Header';
 import Search from './../components/Search';
+import GoogleMaps from './../components/GoogleMaps';
 const Overview = () => {
 	return (
 		<div className='overview-container'>
@@ -15,7 +16,10 @@ const Overview = () => {
 					<Search />
 					<CountryList />
 				</div>
-				<div>map</div>
+				<div style={{ width: '60%', borderRadius: '10px' }}>
+					<GoogleMaps />
+					sdfsd
+				</div>
 			</div>
 		</div>
 	);
