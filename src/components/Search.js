@@ -1,5 +1,7 @@
 import React from 'react';
-const Search = () => {
+import { connect } from 'react-redux';
+import { editSearchTerm } from './actions';
+const Search = ({ searchTerm, editSearchTerm }) => {
 	return (
 		<div
 			style={{
@@ -28,6 +30,8 @@ const Search = () => {
 			<input
 				type='text'
 				placeholder='Search Country'
+				value={searchTerm}
+				onChange={(e) => editSearchTerm(e.target.value)}
 				style={{
 					border: 'none',
 					marginLeft: '10px',
@@ -38,4 +42,8 @@ const Search = () => {
 	);
 };
 
-export default Search;
+const mapStateToProps = (state) => ({
+	searchTerm: state.searchTerm.term,
+});
+
+export default connect(mapStateToProps, { editSearchTerm })(Search);
